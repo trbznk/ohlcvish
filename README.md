@@ -1,7 +1,7 @@
 ohlcvish
 ========
 
-`ohlcvish` takes **OHLCV** data, generate multiple technical indicators on it and then gives you all existing *Buy-Hold-Sell* combinations in the dataset.
+`ohlcvish` takes **OHLCV** data, generate multiple technical indicators on it and then gives you all existing *Buy-Hold-Sell* combinations in the dataset. Mean, median, min and max are the clustered results of the respective signal combination.
 
 ## How to use
 
@@ -42,6 +42,12 @@ signals.head()
 2    -1    0      0   -1      0       0   -1   0       3      -7.415414        -6.642701    -11.645688     -3.957853
 3    -1    0      0   -1      0       0    0   0       1     298.919554       298.919554    298.919554    298.919554
 4    -1    0      0    0     -1       1   -1  -1       1     -54.082750       -54.082750    -54.082750    -54.082750
+```
+
+Define `forecast_period` to change forecast for mean, median, min and max.
+
+```python
+signals = ohlcvish(eth, forecast_period=10)
 ```
 
 
