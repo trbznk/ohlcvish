@@ -1,6 +1,0 @@
-__title__ = 'ohlcvish'
-__description__ = 'analyse trading signals in OHLCV data'
-__url__ = 'https://github.com/terbeznik/ohlcvish'
-__version__ = '0.0.1'
-__author__ = 'Alexander Terbeznik'
-__author_email__ = 'alexander.terbeznik@gmail.com'

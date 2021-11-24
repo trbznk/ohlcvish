@@ -1,7 +1,0 @@
-
-data/
-download.py
-main.py
-*.pyc
-Pipfile
-Pipfile.lock

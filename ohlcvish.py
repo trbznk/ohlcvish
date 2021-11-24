@@ -1,6 +1,8 @@
+import pandas as pd
 import talib
 import numpy as np
-import pandas as pd
+
+# TODO: refactor function parameters to constants
 
 
 def macd(df):
@@ -127,13 +129,8 @@ def forecast(df, forecast_period=30):
     return df
 
 
-def preprocess(df, forecast_period=30):
-    # TODO: Inf problem immer noch
-    df = df.replace([np.inf, -np.inf], np.nan).dropna()
-
-    df = df.sort_index()
-
-    functions = [
+def ohlcvish(df):
+    FUNCTIONS = [
         macd,
         rsi,
         stoch,
@@ -143,17 +140,13 @@ def preprocess(df, forecast_period=30):
         sar,
         ma
     ]
+    for f in FUNCTIONS:
+        df = f(df)
 
-    for function in functions:
-        df = function(df)
-
-    df = forecast(df, forecast_period=forecast_period)
-    df = df.dropna()
-    df = df.drop(["open", "high", "low", "close", "volume"], axis=1)
     return df
 
 
-
-
-
-
+if __name__ == "__main__":
+    btc = pd.read_csv("./BTCUSD.csv")
+    btc = ohlcvish(btc)
+    print(btc)
